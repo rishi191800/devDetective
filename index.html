@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Detective - Application</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container" id="container">
+            <div class="heading">
+                <h1 id="headingH1">DevDetective</h1>
+                <div class="dark-mode">
+                    <p id="mode">DARK</p>
+                    <i id="dark" class="fa-solid fa-moon"></i>
+                    <i id="light" class="fa-solid fa-lightbulb"></i>
+                </div>
+            </div>
+            <form id="searchForm" class="searchForm">
+                <input type="text" id="searchGitId" placeholder="Enter a github username...">
+                <span id="userNotFound">no search result</span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <button type="submit" id="btn">Submit</button>
+            </form>
+            <div class="profile-container" id="profileContainer">
+                <div class="leftSide">
+                    <div class="profilePhoto">
+                        <img src="./Rishi.jpeg" alt="" id="gitPhoto">
+                    </div>
+                </div>
+                <div class="rightSide">
+                    <div class="subHeading">
+                        <h2 id="candidateName">Rishikesh Kumar</h2>
+                        <p id="candidateJoin">Joined 25 sep 2021</p>
+                    </div>
+                    <a id="username" href="#">
+                        @rishi191800
+                    </a>
+                    <p id="description">
+                        Student of IGNOU 3rd Year
+                    </p>
+                    <div class="otherDetails" id="otherDetails">
+                        <div class="repo">
+                            <p>Repos <br><span id="repoSpan">13</span></p>
+                        </div>
+                        <div class="followers">
+                            <p>Followers <br><span id="followersSpan">3</span></p>
+                        </div>
+                        <div class="following">
+                            <p>Following <br><span id="followingSpan">10</span></p>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <div class="locationUser">
+                            <p id="locationUser"><i class="fa-sharp fa-solid fa-location-dot"></i> <span id="location">Patna, Bihar</span></p>
+                        </div>
+                        <div class="profileLink">
+                            <p id="profileLink"><i class="fa-solid fa-link"></i> <a href="#"><span id="link">Not Available</span></a></p>
+                        </div>
+                        <div class="x">
+                            <p id="x"><i class="fa-brands fa-x-twitter"></i> <a id="xHref" target="_blank" href="#"><span id="twitter">Not Available</span></a></p>
+                        </div>
+                        <div class="office">
+                            <p id="office"><i class="fa-sharp fa-solid fa-city"></i> <a target="_blank" href="#"><span id="company">Not Available</span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/13e2fe68a8.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
