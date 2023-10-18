@@ -1,6 +1,6 @@
 
 
-console.log('Namaster Bharat');
+console.log('Namaste Bharat');
 
 let wrapper = document.getElementById('wrapper');
 let container = document.getElementById('container');
@@ -33,7 +33,8 @@ let profileLink = document.getElementById('profileLink');
 let company = document.getElementById('company');
 let link = document.getElementById('link');
 let twitter = document.getElementById('twitter');
-let office = document.getElementById('office');`    `
+let office = document.getElementById('office');
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 let url = "https://api.github.com/users/";
 let finalData = {};
@@ -121,6 +122,7 @@ function fetchResult(event) {
 function getDate(params) {
     let date = new Date(params);
     let finalDate = date.toLocaleDateString();
+    // let splitedDate = finalData.split('/');
     console.log(finalDate);
     return finalDate;
 }
@@ -128,89 +130,91 @@ function getDate(params) {
 searchForm.addEventListener('submit', fetchResult);
 btn.addEventListener('click', fetchResult);
 
-function insertIntoDOM(value) {
+function insertIntoDOM() {
     
-    if(value.avatar_url){
-        gitPhoto.src = value.avatar_url;
+    if(finalData.avatar_url){
+        gitPhoto.src = finalData.avatar_url;
     }
     else{
         gitPhoto.src = "Not Available";
     }
 
-    if(value.name){
-        candidateName.innerHTML = value.name;
+    if(finalData.name){
+        candidateName.innerHTML = finalData.name;
     }
     else{
         candidateName.innerHTML = "Not Available";
     }
     // candidateJoin.innerHTML = getDate(value.created_at);
     
-    if(value.created_at){
-        candidateJoin.innerHTML = `Joined ${getDate(value.created_at)}`;
+    if(finalData.created_at){
+        let date = getDate(valfinalDataue.created_at);
+        console.log(date);
+        candidateJoin.innerHTML = date;
     }
     else{
         candidateJoin.innerHTML = "Not Available";
     }
 
-    if(value.bio){
-        description.innerHTML = value.bio;
+    if(finalData.bio){
+        description.innerHTML = finalData.bio;
     }
     else{
         description.innerHTML = "Not Available";
     }
     
-    if(value.public_repos){
-        repoSpan.innerHTML = value.public_repos;
+    if(finalData.public_repos){
+        repoSpan.innerHTML = finalData.public_repos;
     }
     else{
         repoSpan.innerHTML = 0;
     }
     
-    if(value.followers){
-        followersSpan.innerHTML = value.followers;
+    if(finalData.followers){
+        followersSpan.innerHTML = finalData.followers;
     }
     else{
         followersSpan.innerHTML = 0;
     }
     
-    if(value.following){
-        followingSpan.innerHTML = value.following;
+    if(finalData.following){
+        followingSpan.innerHTML = finalData.following;
     }
     else{
         followingSpan.innerHTML = 0;
     }
     
-    if(value.login){
-        username.innerHTML = `@${value.login}`;
+    if(finalData.login){
+        username.innerHTML = `@${finalData.login}`;
     }
     else{
         username.innerHTML = "Not Available";
     }
     
-    if(value.location){
-        userLocation.innerHTML = value.location;
+    if(finalData.location){
+        userLocation.innerHTML = finalData.location;
     }
     else{
         userLocation.innerHTML = "Not Available";
     }
     
-    if(value.blog){
-        link.innerHTML = value.blog;
+    if(finalData.blog){
+        link.innerHTML = finalData.blog;
     }
     else{
         link.innerHTML = "Not Available";
     }
     
-    if(value.twitter_username){
-        twitter.innerHTML = value.twitter_username;
-        xHref.href = `https://twitter.com/${value.twitter_username}`;
+    if(finalData.twitter_username){
+        twitter.innerHTML = finalData.twitter_username;
+        xHref.href = `https://twitter.com/${finalData.twitter_username}`;
     }
     else{
         twitter.innerHTML = "Not Available";
     }
     
-    if(value.company){
-        company.innerHTML = value.company;
+    if(finalData.company){
+        company.innerHTML = finalData.company;
     }
     else{
         company.innerHTML = "Not Available";
@@ -222,8 +226,7 @@ async function fetchGithubDetails(url) {
         const data = await fetch(url);
         finalData = await data.json();
         if(finalData.login){
-            console.log(finalData);
-            insertIntoDOM(finalData);
+            insertIntoDOM();
         }
         else{
             setTimeout(() => {
