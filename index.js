@@ -84,7 +84,7 @@ function lightMode() {
     mode.innerHTML = "DARK";
     dark.style.display = "block";
     light.style.display = "none";
-    searchForm.style.background = "none";
+    searchForm.style.background = "white";
     profileContainer.style.background = "#fefefe";
     candidateName.style.color = "black";
     candidateJoin.style.color = "#4b6a9b";
