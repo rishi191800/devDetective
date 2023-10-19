@@ -16,7 +16,7 @@ let profileContainer = document.getElementById('profileContainer');
 let gitPhoto = document.getElementById('gitPhoto');
 let candidateName = document.getElementById('candidateName');
 let candidateJoin = document.getElementById('candidateJoin');
-let username = document.getElementById('username');
+let userLogin = document.getElementById('login');
 let description = document.getElementById('description');
 let otherDetails = document.getElementById('otherDetails');
 let repo = document.querySelector('.repo');
@@ -131,6 +131,10 @@ searchForm.addEventListener('submit', fetchResult);
 btn.addEventListener('click', fetchResult);
 
 function insertIntoDOM() {
+
+    console.log(finalData.login);
+    userLogin.innerHTML = `@${finalData.login}`;
+    userLogin.href = `https://github.com/${finalData.login}`;
     
     if(finalData.avatar_url){
         gitPhoto.src = finalData.avatar_url;
@@ -182,13 +186,6 @@ function insertIntoDOM() {
     }
     else{
         followingSpan.innerHTML = 0;
-    }
-    
-    if(finalData.login){
-        username.innerHTML = `@${finalData.login}`;
-    }
-    else{
-        username.innerHTML = "Not Available";
     }
     
     if(finalData.location){
